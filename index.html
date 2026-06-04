@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="کارت ویزیت مجازی امیر موبایلیفای - تعمیرات موبایل، فروش لوازم جانبی، طراحی سایت و برنامه‌نویسی" />
+  <title>امیر موبایلیفای | نسخه 1.1.1</title>
+  <style>
+    :root {
+      --bg-1: #07111f;
+      --bg-2: #0f1f38;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #eef6ff;
+      --muted: #b9c8da;
+      --accent: #35c2ff;
+      --accent-2: #7dffb3;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Vazirmatn, IRANSans, sans-serif;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(53,194,255,0.18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(125,255,179,0.12), transparent 28%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      padding: 32px 16px;
+      line-height: 1.9;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(9, 20, 37, 0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      padding: 42px 28px 28px;
+      background: linear-gradient(135deg, rgba(53,194,255,0.15), rgba(125,255,179,0.08));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .version {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--accent-2);
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      padding: 26px;
+    }
+
+    .box {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 22px 20px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-4px);
+      border-color: rgba(53,194,255,0.45);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .box h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .box p,
+    .box li,
+    .contact a,
+    .footer {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    ul {
+      padding-right: 18px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(53,194,255,0.12);
+      border: 1px solid rgba(53,194,255,0.22);
+      color: #dff7ff;
+      font-size: 0.92rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .contact a {
+      text-decoration: none;
+      display: inline-block;
+      word-break: break-word;
+    }
+
+    .contact a:hover {
+      color: var(--text);
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #061321;
+      background: linear-gradient(135deg, var(--accent), #7fd8ff);
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn.secondary {
+      background: linear-gradient(135deg, var(--accent-2), #b9ffd8);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .footer {
+      padding: 0 26px 26px;
+      text-align: center;
+    }
+
+    .footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 30px 20px 22px;
+      }
+      .grid {
+        padding: 18px;
+      }
+      .box {
+        padding: 18px;
+      }
+      .cta {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <header class="hero">
+        <div class="version">نسخه 1.1.1</div>
+        <h1>امیر موبایلیفای</h1>
+        <p class="tagline">تعمیرات تخصصی موبایل با کیفیت مطمئن، تحویل سریع و خیال راحت با <strong>دو ماه گارانتی خدمات</strong>.</p>
+      </header>
+
+      <section class="grid">
+        <article class="box">
+          <h2>خدمات اصلی</h2>
+          <p>تعمیرات تخصصی موبایل با دقت بالا، قطعات باکیفیت و پشتیبانی قابل اعتماد برای رضایت کامل مشتری.</p>
+        </article>
+
+        <article class="box">
+          <h2>گارانتی خدمات</h2>
+          <p>تمامی خدمات تعمیرات با <strong>دو ماه گارانتی</strong> ارائه می‌شود تا با اطمینان بیشتری سفارش خود را ثبت کنید.</p>
+        </article>
+
+        <article class="box">
+          <h2>لوازم جانبی</h2>
+          <p>فروش انواع لوازم جانبی موبایل شامل کابل، شارژر، گلس، قاب و سایر محصولات کاربردی.</p>
+        </article>
+
+        <article class="box full">
+          <h2>توانمندی‌های برنامه‌نویسی و طراحی سایت</h2>
+          <p>مسلط به برنامه‌نویسی و توسعه وب، مناسب برای اجرای پروژه‌های شخصی، شرکتی و طراحی صفحات حرفه‌ای.</p>
+          <div class="skills">
+            <span class="pill">Python</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">C++</span>
+            <span class="pill">طراحی سایت با WordPress</span>
+          </div>
+        </article>
+
+        <article class="box contact full">
+          <h2>راه‌های ارتباطی</h2>
+          <div class="contact-list">
+            <p><strong>شماره تماس:</strong> <a href="tel:09999820929">09999820929</a></p>
+            <p><strong>واتساپ:</strong> <a href="https://wa.me/989999820929" target="_blank" rel="noopener noreferrer">ارسال پیام در واتساپ</a></p>
+            <p><strong>تلگرام:</strong> <a href="https://t.me/Amir_BFx" target="_blank" rel="noopener noreferrer">@Amir_BFx</a></p>
+          </div>
+          <div class="cta">
+            <a class="btn" href="tel:09999820929">تماس مستقیم</a>
+            <a class="btn secondary" href="https://wa.me/989999820929" target="_blank" rel="noopener noreferrer">پیام واتساپ</a>
+          </div>
+        </article>
+      </section>
+
+      <div class="footer">
+        <p><strong>Amir Mobileify</strong> — کارت ویزیت مجازی آماده اجرا روی GitHub Pages</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
