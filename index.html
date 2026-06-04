@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="کارت ویزیت مجازی امیر موبایلیفای - تعمیرات موبایل، فروش لوازم جانبی، برنامه‌نویسی و طراحی سایت" />
+  <title>امیر موبایلیفای | نسخه 1.1.2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #07131f;
+      --bg-secondary: #0d2035;
+      --surface: rgba(255,255,255,0.08);
+      --surface-strong: rgba(255,255,255,0.12);
+      --border: rgba(255,255,255,0.14);
+      --text: #eef5ff;
+      --muted: #b7c7da;
+      --accent: #42c4ff;
+      --accent-2: #76f5c8;
+      --title: #ffffff;
+      --shadow: 0 28px 70px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(66,196,255,0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(118,245,200,0.12), transparent 25%),
+        linear-gradient(135deg, var(--bg-main), var(--bg-secondary));
+      padding: 28px 16px 18px;
+      line-height: 1.95;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      background: rgba(7, 19, 31, 0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card::before {
+      width: 220px;
+      height: 220px;
+      top: -70px;
+      right: -60px;
+      background: radial-gradient(circle, rgba(66,196,255,0.26), transparent 70%);
+    }
+
+    .card::after {
+      width: 220px;
+      height: 220px;
+      bottom: -80px;
+      left: -70px;
+      background: radial-gradient(circle, rgba(118,245,200,0.20), transparent 70%);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 54px 28px 26px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    }
+
+    .brand {
+      font-family: "Lalezar", "Vazirmatn", sans-serif;
+      font-size: clamp(2.5rem, 5.2vw, 4.6rem);
+      color: var(--title);
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      text-align: center;
+      text-shadow: 0 8px 30px rgba(66,196,255,0.18);
+    }
+
+    .tagline {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .highlight {
+      color: var(--accent-2);
+      font-weight: 800;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 26px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .box {
+      background: linear-gradient(180deg, var(--surface-strong), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      min-height: 100%;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      border-color: rgba(66,196,255,0.35);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+    }
+
+    .box-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(66,196,255,0.12);
+      border: 1px solid rgba(66,196,255,0.2);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .box h2 {
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .box p, .box li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .list li {
+      position: relative;
+      padding-right: 18px;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 13px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(66,196,255,0.08);
+    }
+
+    .contact-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .contact-title {
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 16px;
+      border-radius: 18px;
+      text-decoration: none;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(66,196,255,0.3);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .phone { background: linear-gradient(135deg, #2d8cff, #62d5ff); }
+    .whatsapp { background: linear-gradient(135deg, #1dbf73, #59e29c); }
+    .telegram { background: linear-gradient(135deg, #1c92ff, #62d2ff); }
+    .instagram { background: linear-gradient(135deg, #fd1d1d, #fcb045 55%, #833ab4); }
+
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .contact-text strong {
+      font-size: 0.98rem;
+      color: #ffffff;
+    }
+
+    .contact-text span {
+      font-size: 0.92rem;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      padding: 8px 20px 18px;
+      text-align: center;
+      color: rgba(255,255,255,0.42);
+      font-size: 0.78rem;
+      letter-spacing: 0.4px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    @media (max-width: 820px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 10px 12px; }
+      .hero { padding: 42px 18px 22px; }
+      .content { padding: 16px; }
+      .box, .contact-box { padding: 18px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .brand { font-size: 2.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <header class="hero">
+        <h1 class="brand">امیر موبایلیفای</h1>
+        <p class="tagline">
+          تعمیرات تخصصی موبایل با تمرکز روی کیفیت، سرعت و اعتماد — خدمات شما با <span class="highlight">دو ماه گارانتی</span> ارائه می‌شود.
+        </p>
+      </header>
+
+      <section class="content">
+        <div class="split">
+          <article class="box">
+            <div class="box-header">
+              <span class="icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 1 6 6c0 1.57-.6 3-1.58 4.07l4.25 7.36a1 1 0 1 1-1.74 1l-1.29-2.24H6.36l-1.29 2.24a1 1 0 1 1-1.74-1l4.25-7.36A5.96 5.96 0 0 1 6 8a6 6 0 0 1 6-6Zm0 2a4 4 0 0 0-4 4c0 1.12.46 2.13 1.2 2.86.07.06.13.13.18.2.72.61 1.66.94 2.62.94s1.9-.33 2.62-.94c.05-.07.11-.14.18-.2A3.98 3.98 0 0 0 16 8a4 4 0 0 0-4-4Zm0 10c-1.01 0-1.97-.2-2.85-.56L7.51 16h8.98l-1.64-2.56c-.88.36-1.84.56-2.85.56Z"/></svg>
+              </span>
+              <h2>شغل</h2>
+            </div>
+            <p>فعال در حوزه خدمات تخصصی موبایل و ارائه سرویس قابل اعتماد برای کاربران اندروید و آیفون.</p>
+            <ul class="list">
+              <li>تعمیرات تخصصی موبایل با <strong>دو ماه گارانتی خدمات</strong></li>
+              <li>پشتیبانی و رسیدگی به مشکلات گوشی‌های <strong>Android</strong> و <strong>iPhone</strong></li>
+              <li>فروش لوازم جانبی موبایل شامل شارژر، کابل، قاب، گلس و محصولات کاربردی</li>
+              <li>تحویل کار با تمرکز روی کیفیت، دقت و رضایت مشتری</li>
+            </ul>
+          </article>
+
+          <article class="box">
+            <div class="box-header">
+              <span class="icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 9.73L5.04 9 12 5.27 18.96 9 12 12.73ZM4 12.49V17l8 4 8-4v-4.51l-8 4.37-8-4.37Z"/></svg>
+              </span>
+              <h2>رزومه</h2>
+            </div>
+            <p>ترکیبی از تجربه فنی در برنامه‌نویسی، طراحی سایت و دانش دانشگاهی در حوزه کامپیوتر.</p>
+            <ul class="list">
+              <li>مسلط به <strong>Python</strong>، <strong>HTML</strong>، <strong>CSS</strong> و <strong>C++</strong></li>
+              <li>طراح سایت با <strong>WordPress</strong> و پیاده‌سازی صفحات حرفه‌ای و کاربردی</li>
+              <li>توانایی توسعه رابط کاربری و اجرای پروژه‌های وب شخصی و شرکتی</li>
+              <li><strong>رشته دانشگاهی: مهندسی کامپیوتر</strong></li>
+            </ul>
+          </article>
+        </div>
+
+        <section class="contact-box">
+          <h2 class="contact-title">راه‌های ارتباطی</h2>
+          <div class="contact-grid">
+            <a class="contact-item" href="tel:09999820929">
+              <span class="contact-icon phone" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.3 22 2 13.7 2 3a1 1 0 0 1 1-1h4.5a1 1 0 0 1 1 1c0 1.24.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+              </span>
+              <span class="contact-text">
+                <strong>تماس</strong>
+                <span>09999820929</span>
+              </span>
+            </a>
+
+            <a class="contact-item" href="https://wa.me/989999820929" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon whatsapp" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.56 0 .28 5.28.28 11.77c0 2.07.54 4.09 1.56 5.87L0 24l6.52-1.71a11.75 11.75 0 0 0 5.54 1.41h.01c6.49 0 11.77-5.28 11.77-11.77 0-3.14-1.22-6.09-3.32-8.45ZM12.07 21.7h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.87 1.01 1.03-3.78-.24-.39a9.78 9.78 0 0 1-1.5-5.19C2.13 6.38 6.68 1.83 12.07 1.83c2.61 0 5.06 1.02 6.91 2.87a9.71 9.71 0 0 1 2.86 6.91c0 5.39-4.39 10.09-9.77 10.09Zm5.37-7.35c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.42-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.44.13-.59.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.9-2.18-.24-.59-.49-.51-.66-.52h-.56c-.2 0-.51.08-.78.37s-1.03 1.01-1.03 2.46c0 1.45 1.05 2.85 1.2 3.04.15.2 2.05 3.12 5.07 4.38.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.08 1.72-.7 1.96-1.37.24-.66.24-1.23.17-1.35-.07-.11-.27-.18-.56-.33Z"/></svg>
+              </span>
+              <span class="contact-text">
+                <strong>واتساپ</strong>
+                <span>پیام با همین شماره</span>
+              </span>
+            </a>
+
+            <a class="contact-item" href="https://t.me/Amir_BFx" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon telegram" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9.04 15.47 8.7 20.24c.49 0 .7-.21.95-.46l2.28-2.18 4.72 3.46c.87.48 1.48.23 1.72-.8L21.5 4.7c.31-1.27-.46-1.77-1.3-1.46L1.62 10.4c-1.27.5-1.26 1.2-.22 1.52l4.75 1.48L17.2 6.46c.52-.32 1-.14.61.19l-8.77 8.82Z"/></svg>
+              </span>
+              <span class="contact-text">
+                <strong>تلگرام</strong>
+                <span>@Amir_BFx</span>
+              </span>
+            </a>
+
+            <a class="contact-item" href="https://www.instagram.com/amirmobilify" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon instagram" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm0 2h10c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3Zm11.5 1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
+              </span>
+              <span class="contact-text">
+                <strong>اینستاگرام</strong>
+                <span>instagram.com/amirmobilify</span>
+              </span>
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer">version 1.1.2</footer>
+    </section>
+  </main>
+</body>
+</html>
